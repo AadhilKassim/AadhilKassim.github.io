@@ -13,7 +13,3 @@ window.onscroll = function() {
         scrollTopBtn.style.display = "none";
     }
 };
-
-function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-}
