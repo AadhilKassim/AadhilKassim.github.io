@@ -134,26 +134,23 @@ nav .logo {
     transition: background-color 0.3s, transform 0.2s;
 }
 
-/* About Me Section */
-#about {
-    padding: 3rem 0;
-    background-color: #f9f9f9;
+/* About Section */
+.about-section {
+    padding: 4rem 2rem;
     text-align: center;
 }
 
-#about h2 {
-    font-size: 2.5rem;
+.about-section h2 {
+    font-size: 2.2rem;
+    color: #34495e;
     margin-bottom: 1rem;
-    color: #333;
 }
 
-.about-container {
-    max-width: 700px;
+.about-section p {
+    color: #7f8c8d;
+    font-size: 1rem;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 1rem;
-    font-size: 1.125rem;
-    color: #555;
-    line-height: 1.6;
 }
 
 /* Projects Section */
