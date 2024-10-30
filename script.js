@@ -65,3 +65,22 @@ document.getElementById("contactForm").addEventListener("submit", function(event
             alert("Failed to send message. Please try again.");  // Error message
         });
 });
+
+// Check for dark mode preference
+const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+// Toggle dark mode based on user preference
+const toggleDarkMode = (matches) => {
+    document.body.classList.toggle("dark-mode", matches);
+    document.body.classList.toggle("theme-transition"); // CSS class for transition effect
+};
+
+// Listen for DOMContentLoaded event to set initial theme
+document.addEventListener("DOMContentLoaded", () => {
+    toggleDarkMode(prefersDarkScheme.matches);
+});
+
+// Listen for changes in user preference
+prefersDarkScheme.addEventListener("change", (e) => {
+    toggleDarkMode(e.matches);
+});
