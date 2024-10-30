@@ -6,34 +6,61 @@
 }
 
 /* Light mode (default) */
+/* Light mode (default) */
 body {
     background-color: #ffffff;
     color: #333333;
 }
 
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #121212;
-        color: #ffffff;
-    }
-    
-    /* Update other sections for dark mode */
-    .header-container, .nav-links, .hero, .about-section, .project-container, .skills-container, .contact-section, footer {
-        background-color: #1e1e1e;
-    }
-    
-    .project-card, .skill-item, .contact-form input, .contact-form textarea, .contact-form button {
-        background-color: #2c2c2c;
-        color: #ffffff;
-        border-color: #444444;
-    }
-    
-    /* Adjust link and button colors */
-    a, .cta-button, .contact-button {
-        color: #bb86fc;
-    }
+/* Dark mode styling (activated via class) */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
 }
+
+/* Dark mode for elements */
+body.dark-mode .header-container,
+body.dark-mode .nav-links,
+body.dark-mode .hero,
+body.dark-mode .about-section,
+body.dark-mode .project-container,
+body.dark-mode .skills-container,
+body.dark-mode .contact-section,
+body.dark-mode footer {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode .project-card,
+body.dark-mode .skill-item,
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea,
+body.dark-mode .contact-form button {
+    background-color: #2c2c2c;
+    color: #ffffff;
+    border-color: #444444;
+}
+
+body.dark-mode a,
+body.dark-mode .cta-button,
+body.dark-mode .contact-button {
+    color: #bb86fc;
+}
+
+/* Styling for dark mode toggle button */
+.dark-mode-toggle {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #2c3e50;
+    cursor: pointer;
+    margin-left: 1rem;
+    transition: color 0.3s;
+}
+
+.dark-mode-toggle:hover {
+    color: #1f618d;
+}
+
 
 /* Navigation Bar */
 header {
