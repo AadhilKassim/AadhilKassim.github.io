@@ -43,3 +43,25 @@ document.getElementById("scrollTopBtn").addEventListener("click", function() {
         behavior: "smooth"
     });
 });
+
+// Initialize EmailJS (replace 'YOUR_USER_ID' with your EmailJS user ID)
+emailjs.init("YOUR_USER_ID");
+
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault();  // Prevent default form submission
+    
+    // Prepare the form data
+    const formData = {
+        from_name: this.name.value,
+        from_email: this.email.value,
+        message: this.message.value
+    };
+    
+    // Send email using EmailJS (replace with your EmailJS service ID and template ID)
+    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", formData)
+        .then(function(response) {
+            alert("Message sent successfully!");  // Success message
+        }, function(error) {
+            alert("Failed to send message. Please try again.");  // Error message
+        });
+});
