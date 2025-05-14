@@ -6,7 +6,6 @@
 }
 
 /* Light mode (default) */
-/* Light mode (default) */
 body {
     background-color: #ffffff;
     color: #333333;
@@ -112,6 +111,13 @@ nav .logo {
     color: #fff;
     border-radius: 5px;
 }
+
+.nav-links.show {
+    max-height: 300px; /* Adjust as necessary */
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+}
+
 
 /* Mobile Navigation */
 .menu-toggle {
