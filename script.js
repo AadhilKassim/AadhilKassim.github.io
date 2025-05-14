@@ -3,7 +3,7 @@ function toggleMenu() {
     const navLinks = document.getElementById("navLinks");
     navLinks.classList.toggle("show");
     // Animate menu toggle
-    navLinks.style.transition = "max-height 0.5s ease-in-out";
+    // navLinks.style.transition = "max-height 0.5s ease-in-out";
 }
 
 // Smooth scroll to sections
