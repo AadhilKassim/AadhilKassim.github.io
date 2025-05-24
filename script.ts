@@ -1,12 +1,10 @@
-// Toggle the mobile menu
-function toggleMenu() {
-    const navLinks = document.getElementById("navLinks");
-    if (navLinks) { // Add null check
-        navLinks.classList.toggle("show");
-    }
-    // Animate menu toggle
-    // navLinks.style.transition = "max-height 0.5s ease-in-out";
-}
+// function toggleMenu() {
+//     const navLinks = document.getElementById("navLinks");
+//     if (navLinks) {
+//         navLinks.classList.toggle("show");
+//     }
+//     // navLinks.style.transition = "max-height 0.5s ease-in-out";
+// }
 
 // Smooth scroll to sections
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -41,9 +39,9 @@ window.onscroll = function() {
 };
 
 // Scroll to top with smooth effect
-const scrollTopBtn = document.getElementById("scrollTopBtn");
-if (scrollTopBtn) { // Add null check
-    scrollTopBtn.addEventListener("click", function() {
+const scrollToTopButton = document.getElementById("scrollTopBtn");
+if (scrollToTopButton) { // Add null check
+    scrollToTopButton.addEventListener("click", function() {
         window.scrollTo({
             top: 0,
             behavior: "smooth"
@@ -56,16 +54,17 @@ if (typeof emailjs !== "undefined") { // Ensure emailjs is defined
     emailjs.init("YOUR_USER_ID");
 }
 
-const contactForm = document.getElementById("contactForm");
-if (contactForm) { // Add null check
-    contactForm.addEventListener("submit", function(event) {
+const contactFormElement = document.getElementById("contactForm");
+if (contactFormElement) { // Add null check
+    contactFormElement.addEventListener("submit", function(event) {
         event.preventDefault();  // Prevent default form submission
         
         // Prepare the form data
         const formData = {
-            from_name: (this.querySelector("[name='name']") && this.querySelector("[name='name']").value) || "",
-            from_email: (this.querySelector("[name='email']") && this.querySelector("[name='email']").value) || "",
-            message: (this.querySelector("[name='message']") && this.querySelector("[name='message']").value) || ""
+            from_name: (this.querySelector("[name='name']") && (this.querySelector("[name='name']") as any).value) || "",
+            from_email: (this.querySelector("[name='email']") && (this.querySelector("[name='email']") as any).value) || "",
+            to_email: "aadhikassim@gmail.com", // Send to your email address
+            message: (this.querySelector("[name='message']") && (this.querySelector("[name='message']") as any).value) || ""
         };
         
         // Send email using EmailJS (replace with your EmailJS service ID and template ID)
@@ -81,20 +80,25 @@ if (contactForm) { // Add null check
 }
 
 // Check for dark mode preference
-const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+const darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
 
 // Toggle dark mode based on user preference
-const toggleDarkMode = (matches) => {
+const applyDarkMode = (matches) => {
     document.body.classList.toggle("dark-mode", matches);
     document.body.classList.toggle("theme-transition"); // CSS class for transition effect
 };
 
 // Listen for DOMContentLoaded event to set initial theme
 document.addEventListener("DOMContentLoaded", () => {
-    toggleDarkMode(prefersDarkScheme.matches);
+    applyDarkMode(darkModePreference.matches);
 });
 
 // Listen for changes in user preference
-prefersDarkScheme.addEventListener("change", (e) => {
-    toggleDarkMode(e.matches);
+darkModePreference.addEventListener("change", (e) => {
+    applyDarkMode(e.matches);
 });
+
+// Import or define 'emailjs' to resolve undefined error
+// Example: import emailjs from 'emailjs-com'; (if using a module system)
+// Ensure emailjs is available globally or imported correctly
+declare const emailjs: any; // Add this declaration if emailjs is globally available
